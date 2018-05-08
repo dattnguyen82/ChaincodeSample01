@@ -1,0 +1,450 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Predix Blockchain",
+		"_postman_id": "e2af8acb-1f72-1b24-1d74-e0de0b758cfe",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{uaa-auth}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{uaa-url}}/oauth/token",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chaincodes ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/chaincodes",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chaincode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/chaincodes/{{chain-code}}",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blocks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/blocks",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/transactions/{{tx-id}}",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/users/{{user-id}}",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy chaincode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "chaincode",
+							"value": "",
+							"description": "",
+							"type": "file"
+						},
+						{
+							"key": "args",
+							"value": "[\"21c896c3-bf4a-409e-adc9-2ac9edb2bd43\"]",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/chaincodes/{{chain-code}}",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Enroll User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "onetimepassword",
+							"value": "{{default-password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://{{api-url}}/v1/users/{{default-user}}/enroll",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"function\": \"read\",\n\t\"args\": [\"change\"]\n}"
+				},
+				"url": "https://{{api-url}}/v1/chaincodes/{{chain-code}}/query",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		},
+		{
+			"name": "Invoke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"uaa_admin_token\", \"bearer \" + jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Predix-Zone-Id",
+						"value": "{{tenant}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"function\": \"sign\",\n\t\"args\": [\"change\",\"manager1\", \"auditer2\"]\n}"
+				},
+				"url": "https://{{api-url}}/v1/chaincodes/{{chain-code}}/invoke",
+				"description": "Generated from a curl request: \\ncurl -X POST -H  \\\"Authorization: Basic cGItcm9sbHVwOmNHSXRjbTlzYkhWd0xYVmhkRG94WTJJMk9XTmpaQzFsWldGaUxUUXpPVFF0WW1VNU1DMWxNRGd4Wm1ObE9HRXlOVEF1Y0hKbFpHbDRMWFZoWVM1eWRXNHVZWGR6TFhWemR6QXlMWEJ5TG1salpTNXdjbVZrYVhndWFXOD0=\\\" -H \\\"Cache-Control: no-cache\\\" -H \\\"Postman-Token: cf8722f9-5616-0b13-0bd9-704a7f0e8ae8\\\" -d '' 'https://1cb69ccd-eeab-4394-be90-e081fce8a250.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials&client_id=pb-rollup'"
+			},
+			"response": []
+		}
+	]
+}
