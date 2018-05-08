@@ -37,7 +37,7 @@ Deploy to Predix using this [guide](https://docs.predix.io/en-US/content/service
 
 ## Postman Collection
 
-A Postman collection and environment have been added for convenience.
+A Postman [collection](https://github.build.ge.com/212391398/predix-blockchain-sample/blob/master/postman/predix-blockchain-collection.postman_collection.json) and [environment](https://github.build.ge.com/212391398/predix-blockchain-sample/blob/master/postman/predix-blockhain-environment.postman_environment.json) have been added for convenience.
 
 ### Environment parameters
 
