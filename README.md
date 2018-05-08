@@ -41,24 +41,24 @@ A Postman collection and environment have been added for convenience.
 
 ### Environment parameters
 
-* uaa-url - UAA base url
+* **uaa-url** - UAA base url
 
-* uaa-auth - UAA token retrieval authorization
+* **uaa-auth** - UAA token retrieval authorization
 
-* token - Access token from UAA
+* **token** - Access token from UAA
 
-* api-url - Base URL for predix blockchain service e.g. *predix-blockchain-api.run.aws-usw02-pr.ice.predix.io*
+* **api-url** - Base URL for predix blockchain service e.g. *predix-blockchain-api.run.aws-usw02-pr.ice.predix.io*
 
-* tenant - Predix-Zone-Id from VCAP
+* **tenant** - Predix-Zone-Id from VCAP
 
-* user-id - new user Id
+* **user-id** - new user Id
 
-* default-user - username from VCAP
+* **default-user** - username from VCAP
 
-* default-password - onetimepassword from VCAP
+* **default-password** - onetimepassword from VCAP
 
-* chain-code - name of chaincode to deploy
+* **chain-code** - name of chaincode to deploy
 
-* tx-id - transaction id from chaincode invocation
+* **tx-id** - transaction id from chaincode invocation
 
-* deploy-arguments - chaincode deployment argument e.g. *["arg1", "arg2", "arg3" ...]*,
+* **deploy-arguments** - chaincode deployment argument e.g. *["arg1", "arg2", "arg3" ...]*,
