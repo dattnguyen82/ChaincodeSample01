@@ -16,20 +16,26 @@ func (t *DocumentTracker) Init(stub shim.ChaincodeStubInterface, function string
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 1")
 	}
+
 	err := stub.PutState("zoneID", []byte(args[0]))
 	if err != nil {
 		return nil, err
 	}
+
 	return nil, err
 }
 
 func (t *DocumentTracker) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
- 	if function == "store" {
+ 	if function == "assign" {
 		f := func() ([]byte, error){
 			err := stub.PutState(args[0], []byte(args[1]))
 			return nil, err
 		}
 		return t.verifyAndExecute(stub, f)
+	} else if function == "sign" {
+		signed := args[0] + "," + args[1] + "," +  args[2]
+		err := stub.PutState(args[0], []byte(signed))
+		return nil, err
 	}
 	return nil, errors.New("Invalid invoke function")
 }
@@ -49,9 +55,6 @@ func (t *DocumentTracker) Query(stub shim.ChaincodeStubInterface, function strin
 			jsonResp := "{\"Error\":\"No data stored\"}"
 			return nil, errors.New(jsonResp)
 		}
-
-		//jsonResp := "{\"Name\":\"store\",\"Amount\":\"" + string(dataBytes) + "\"}"
-		//fmt.Printf("Query Response:%s\n", jsonResp)
 		return dataBytes, nil
 	}
 	return nil, errors.New("Invalid query function")
