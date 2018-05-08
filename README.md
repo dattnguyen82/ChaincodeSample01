@@ -14,22 +14,18 @@ This is a sample smart contract (chaincode) for the [Predix Blockchain Service](
 	go get github.com/dattnguyen82/ChaincodeSample01
 
 ### Compile source
-
-    In your GO path you should have a directory called:  **$GOPATH/src/github.com/dattnguyen82/predix-sample-chaincode**
-    Run this command:
+In your GO path you should have a directory called:  **$GOPATH/src/github.com/dattnguyen82/predix-sample-chaincode**
+Run this command:
 
 	go build predix-blockchain-sample01.go
 
 ### Deploy
-
-    To deploy your smart contract:
-
-    Compress the predix-sample-chaincode directory contents with tar.gz
+To deploy your smart contract, compress the predix-sample-chaincode directory contents with tar.gz
 
 	cd $GOPATH/src/github.com/dattnguyen82/predix-sample-chaincode
 	tar czvf predix-sample-chaincode.tgz *
 
-	Deploy to Predix using this [guide](https://docs.predix.io/en-US/content/service/security/blockchain_as_a_service/using-blockchain-as-a-service#task_77c2dbb7-4ba7-4a1a-9628-359c3fd0800e)
+Deploy to Predix using this [guide](https://docs.predix.io/en-US/content/service/security/blockchain_as_a_service/using-blockchain-as-a-service#task_77c2dbb7-4ba7-4a1a-9628-359c3fd0800e)
 
     curl -X PUT \
     https://{predix-url}/v1/chaincodes/{smart-contract-name} \
