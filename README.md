@@ -28,23 +28,21 @@ This is a sample smart contract (chaincode) for the [Predix Blockchain Service](
 
     To deploy your smart contract:
 
-    * Compress the predix-sample-chaincode directory contents with tar.gz
-
-    Use this command
+    Compress the predix-sample-chaincode directory contents with tar.gz
 
 	```
 	cd $GOPATH/src/github.com/dattnguyen82/predix-sample-chaincode
 	tar czvf predix-sample-chaincode.tgz *
 	```
 
-	* Deploy to Predix using this [guide](https://docs.predix.io/en-US/content/service/security/blockchain_as_a_service/using-blockchain-as-a-service#task_77c2dbb7-4ba7-4a1a-9628-359c3fd0800e)
+	Deploy to Predix using this [guide](https://docs.predix.io/en-US/content/service/security/blockchain_as_a_service/using-blockchain-as-a-service#task_77c2dbb7-4ba7-4a1a-9628-359c3fd0800e)
 
     ```
-      curl -X PUT \
-      https://{predix-url}/v1/chaincodes/{smart-contract-name} \
-      -H 'authorization: bearer {token}' \
-      -H 'content-type: multipart/form-data;' \
-      -H 'predix-zone-id: {predix-zone-id}' \
-      -F chaincode=@{path} \
-      -F 'args=["{predix-zone-id}"]'
+    curl -X PUT \
+    https://{predix-url}/v1/chaincodes/{smart-contract-name} \
+    -H 'authorization: bearer {token}' \
+    -H 'content-type: multipart/form-data;' \
+    -H 'predix-zone-id: {predix-zone-id}' \
+    -F chaincode=@{path} \
+    -F 'args=["{predix-zone-id}"]'
     ```
